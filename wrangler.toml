@@ -1,0 +1,14 @@
+name = "workers-project"
+type = "javascript"
+account_id = "797aa1809556b8ec7444f182a877f35a"
+workers_dev = true
+compatibility_date = "2021-12-20"
+
+kv_namespaces = [
+    { binding = "WP_NSPACE", id = "393125251ac348b6b27d15a9cc33b79d" }
+]
+
+[build]
+command = "npm install && npm run build"
+[build.upload]
+format = "service-worker"
