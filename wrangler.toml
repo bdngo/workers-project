@@ -5,7 +5,7 @@ workers_dev = true
 compatibility_date = "2021-12-20"
 
 kv_namespaces = [
-    { binding = "WP_NSPACE", preview_id = "d40be8479d124f88bdd3d7cd2665d7c7", id = "1a9afd6398a94ad2b604d21f650d0b5c" }
+    { binding = "WP_NSPACE_PROD", id = "c59e29f30870454cba80394b23ca3b93" }
 ]
 
 [build]
