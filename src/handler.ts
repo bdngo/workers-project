@@ -5,7 +5,7 @@ export async function handleRequest(request: Request): Promise<Response> {
   }
   switch (request.method) {
     case 'GET':
-      return handleGet(request)
+      return handleGet()
     case 'POST':
       return handlePost(request)
     default:
@@ -13,7 +13,7 @@ export async function handleRequest(request: Request): Promise<Response> {
   }
 }
 
-async function handleGet(request: Request): Promise<Response> {
+async function handleGet(): Promise<Response> {
   const keys_lst = await WP_NSPACE_PROD.list()
   const keys = keys_lst.keys
   let posts: string[] = []
