@@ -5,9 +5,13 @@ export async function handleRequest(request: Request): Promise<Response> {
   }
   switch (request.method) {
     case 'GET':
-      return handleGet()
+      const getResp = await handleGet()
+      getResp.headers.set("Access-Control-Allow-Origin", '*')
+      return getResp
     case 'POST':
-      return handlePost(request)
+      const postResp = await handlePost(request)
+      postResp.headers.set("Access-Control-Allow-Origin", '*')
+      return postResp
     default:
       return new Response('Invalid request', { status: 501 })
   }
@@ -22,9 +26,10 @@ async function handleGet(): Promise<Response> {
     if (val === null) {
       return new Response('Key not found', { status: 404 })
     }
-    posts.push(val)
+    const newVal = Object.assign(elem, JSON.parse(val))
+    posts.push(JSON.stringify(newVal))
   }
-  return new Response(posts.toString(), { status: 200 })
+  return new Response(posts.join('\n'), { status: 200 })
 }
 
 async function handlePost(request: Request): Promise<Response> {
