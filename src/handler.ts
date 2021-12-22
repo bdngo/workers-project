@@ -6,11 +6,11 @@ export async function handleRequest(request: Request): Promise<Response> {
   switch (request.method) {
     case 'GET':
       const getResp = await handleGet()
-      getResp.headers.set("Access-Control-Allow-Origin", '*')
+      getResp.headers.set('Access-Control-Allow-Origin', '*')
       return getResp
     case 'POST':
       const postResp = await handlePost(request)
-      postResp.headers.set("Access-Control-Allow-Origin", '*')
+      postResp.headers.set('Access-Control-Allow-Origin', '*')
       return postResp
     default:
       return new Response('Invalid request', { status: 501 })
